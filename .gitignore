@@ -1,3 +1,4 @@
+
 # Created by https://www.toptal.com/developers/gitignore/api/react
 # Edit at https://www.toptal.com/developers/gitignore?templates=react
 ### react ###
@@ -12,4 +13,5 @@ bower_components
 psd
 thumb
 sketch
+
 # End of https://www.toptal.com/developers/gitignore/api/react
