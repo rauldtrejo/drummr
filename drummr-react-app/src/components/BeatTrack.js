@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
-import BeatButton from './BeatButton'
+import BeatButton from './BeatButton';
+import Button from 'react-bootstrap/Button'
+
 
 class BeatTrack extends Component {
-  constructor() {
-    super();
+  // We need to add props to constructor and super so that we can access props inside
+  // the generate buttons function.
+  constructor(props) {
+    super(props);
     this.state = {
-      trackArray: [1,2,3,4]
+      buttonArray: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
     }
     this.state = {
-      trackArray: this.generateButtons()
+      buttonArray: this.generateButtons(props)
     }
   }
-  generateButtons= () => {
-    return this.state.trackArray.map( (element, index)=> {
+  generateButtons= (props) => {
+    return this.state.buttonArray.map( (element, index)=> {
       return(
-        <BeatButton value={index}/>
+        console.log(props),
+        <BeatButton value={`${props.name}-${index+1}`}/>
         )
     }
     )
   }
   render() {
     return (
-      <div>
-        {this.state.trackArray.length ? this.state.trackArray : "Loading..." }
-      </div>
+      <>
+        <Button value={this.props.name}>
+          {this.props.name}
+        </Button>
+        {this.state.buttonArray.length ? this.state.buttonArray : "Loading..." }
+      </>
     );
   }
 }
