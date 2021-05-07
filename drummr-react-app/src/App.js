@@ -1,9 +1,10 @@
-import BeatPad from './components/BeatPad'
+import BeatTrack from "./components/BeatTrack"
 
 function App() {
   return (
     <div className="App">
-      <BeatPad/>
+      <BeatTrack/>
+      <BeatTrack/>
     </div>
   );
 }

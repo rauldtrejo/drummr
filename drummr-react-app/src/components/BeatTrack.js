@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import BeatButton from './BeatButton';
 import Button from 'react-bootstrap/Button'
-
+import * as Tone from "tone";
+const gongURL = 'https://tonejs.github.io/audio/berklee/gong_1.mp3'
+const gongLocal= '/Users/coco/collabs/drummr/drummr-react-app/src/gong_1.mp3'
+const kickURL = 'https://www.dropbox.com/s/iab7tr863wmr6u0/SAP2_Kick_01.wav'
 
 class BeatTrack extends Component {
   // We need to add props to constructor and super so that we can access props inside
@@ -15,6 +18,13 @@ class BeatTrack extends Component {
       buttonArray: this.generateButtons(props)
     }
   }
+  sampleURL= this.props.URL
+  buffer = new Tone.Buffer((this.sampleURL,()=>{
+    let buff = this.buffer.get()
+    // console.log(buff,"AAAAAHAHHAHAHAHHAHAHAHAHAHAHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHHAHAHAHAH")
+  }))
+  sample = new Tone.Player(this.sampleURL).toDestination()
+  // console.log(this.sample,"this is buffer",buffer)
   generateButtons= (props) => {
     return this.state.buttonArray.map( (element, index)=> {
       return(
@@ -22,13 +32,14 @@ class BeatTrack extends Component {
         )
     }
     )
-  }
-
+  } 
   play = (props) => {
+    Tone.loaded().then(()=>{this.sample.start()})
+
     // let audio = document.querySelector(`#${props.value}`)
-    let audio = document.querySelector(`audio`)
-    console.log(audio);
-    audio.play()
+    // let audio = document.querySelector(`audio`)
+    // console.log(audio);
+    // audio.play()
   }
 
   render() {
