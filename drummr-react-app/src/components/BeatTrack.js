@@ -18,18 +18,27 @@ class BeatTrack extends Component {
   generateButtons= (props) => {
     return this.state.buttonArray.map( (element, index)=> {
       return(
-        console.log(props),
-        <BeatButton value={`${props.name}-${index+1}`}/>
+        <BeatButton value={`${props.name}-${index+1}`} play={this.play}/>
         )
     }
     )
   }
+
+  play = (props) => {
+    // let audio = document.querySelector(`#${props.value}`)
+    let audio = document.querySelector(`audio`)
+    console.log(audio);
+    audio.play()
+  }
+
   render() {
     return (
       <>
         <Button value={this.props.name}>
           {this.props.name}
+          <audio id={this.props.name} src="drummr-react-app/public/INK DRUMS-Kick-Cavern.mp3"></audio>
         </Button>
+        
         {this.state.buttonArray.length ? this.state.buttonArray : "Loading..." }
       </>
     );
