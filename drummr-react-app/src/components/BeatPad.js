@@ -38,6 +38,7 @@ class BeatPad extends Component {
   }
 
   trackNames = ["Kick", "Snare", " Closed Hat", "Open Hat", "Ride", "Ride Bell", "Crash", "Clap"]
+  sampleURLS = ["https://tonejs.github.io/audio/loop/kick.mp3", "https://tonejs.github.io/audio/loop/snare.mp3", " https://tonejs.github.io/audio/drum-samples/R8/hihat.mp3", "kick.mp3", "kick.mp3", "kick.mp3", "kick.mp3", "kick.mp3"]
   generateTracks= () => {
     return this.state.trackArray.map( (element, index)=> {
       return(
@@ -47,6 +48,7 @@ class BeatPad extends Component {
               <BeatTrack
               name={this.trackNames[index]}
               value={index+1}
+              URL={this.sampleURLS[index]}
               />
             </Row>
           </Container>
