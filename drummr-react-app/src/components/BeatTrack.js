@@ -43,6 +43,7 @@ class BeatTrack extends Component {
   }
 
   render() {
+    console.log(this.props.URL)
     return (
       <>
         <Button value={this.props.name}>
